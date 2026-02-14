@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GrandFuzard/glm4-7flash-opus-colab/blob/main/GLM%204.7Flash%20fine%20tune%20Opus%204.5%20xhigh.ipynb)
+[![link](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GrandFuzard/GLM_4_7Flash_fine_tune_Opus_4_5_xhigh.ipynb)
 
 # glm4-7flash-opus-colab
 
