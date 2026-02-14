@@ -1,4 +1,4 @@
-<a href="https://colab.research.google.com/github/GrandFuzard/glm4-7flash-opus-colab/blob/main/GLM_4.7Flash_fine_tune_Opus_4.5_xhigh.ipynb">
+<a href="https://colab.research.google.com/github/GrandFuzard/glm4-7flash-opus-colab/blob/main/GLM_4_7Flash_fine_tune_Opus_4_5_xhigh.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
