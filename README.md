@@ -17,6 +17,7 @@ This project focuses on making large GGUF models usable on **free Colab T4** by 
 - Multiple chats with rename / delete / export
 - Token/sec and latency display
 - One-click launch from Colab
+- Web search using duck duck go and context limit controls
 
 ---
 
