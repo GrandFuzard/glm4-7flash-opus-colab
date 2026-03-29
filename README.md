@@ -4,67 +4,104 @@
 
 # glm4-7flash-opus-colab
 
-Ready-to-run colab notebook for running a **GLM-4.7-Flash × Claude Opus 4.5 high-reasoning distill (GGUF)** model.
-
-This project focuses on making large GGUF models usable on **free Colab T4** by supporting GPU/CPU layer splitting and a User friendly Gradio web UI.
+> Run **GLM-4.7 Flash × Claude Opus reasoning distill** on **FREE Google Colab (T4)** using GGUF + Gradio UI. No local setup required.
 
 ---
 
 ## ✨ Features
 
 - GGUF inference via llama.cpp (CUDA + CPU split)
-- Gradio chat interface with streaming
-- Multiple chats with rename / delete / export
-- Token/sec and latency display
-- One-click launch from Colab
-- Web search using duck duck go and context limit controls
+- Flash Attention enabled (`flash_attn=True`)
+- Optimized batching (`n_batch=512`)
+- Gradio chat UI with streaming
+- Multi-chat (rename / delete / export)
+- Copy button for responses
+- Token/sec + latency display
+- Web search (DuckDuckGo) integration
+- One-click Colab launch
 
 ---
 
 ## 🚀 Quick start
 
-1. Click **Open in Colab** at the top of this page.
-2. Run the cells in order.
-3. Choose a quantized model in the dropdown.
-4. Adjust GPU layers if needed.
-5. Open the Gradio public link.
+1. Click **Open in Colab**
+2. Run cells **1 → 4**
+3. Select quant in Cell 2
+4. Adjust GPU layers (start at 48)
+5. Open the Gradio public link
 
-No local setup is required.
+---
+
+## 🔧 Configuration Notes
+
+- Default context: `4096`
+- GPU layers: `48` (adjust if needed for your quant)
+- Higher quants may require CPU offloading
+
+---
+
+## 🎛️ Sampling Presets (Fixed)
+
+Based on model card:
+
+| Mode | Temperature | Top-P |
+|------|------------|------|
+| General | `1.0` | `0.95` |
+| Tool-calling | `0.7` | `1.0` |
+| Research | `0.7` | `0.95` |
+
+---
+
+## 🆕 Recent Updates
+
+- Increased `n_batch` from 384 → 512 (better throughput)
+- Enabled `flash_attn=True` (faster inference)
+- Fixed sampling presets to match model card
+- Added **copy button** in chat UI
+- Fixed upload status clearing after responses
+- Improved stability for free Colab T4 usage
 
 ---
 
 ## 💻 Requirements
 
-- Free Colab T4 (15 GB VRAM) is enough to run upto Q3_K_M.
-- GPU / CPU splitting is controlled manually using the GPU layers slider.
+- Free Colab T4 (~15GB VRAM)
+
+| Quant | Behavior |
+|------|--------|
+| IQ2_M → Q3_K_M | Fully GPU |
+| IQ4_XS → Q6_K | GPU + CPU split |
+| Q8_0+ | Not suitable for T4 |
 
 ---
 
 ## 📦 Models
 
-Models and quantized files are downloaded at runtime from their specific repositories
+Models are downloaded at runtime from Hugging Face.
 
-This repository does **not** redistribute any model weights or datasets.
+This repository does **not** host model weights.
 
 ---
 
-## ⚠️ Important note
+## ⚠️ Notes
 
-This repository contains **only the Colab notebook and UI / glue code**.
-
-Models and datasets are fetched from their original sources and remain under their
-respective licenses.
+- Performance depends on context length and quant
+- Flash attention may slightly increase VRAM usage
+- CPU splitting affects token generation speed
 
 ---
 
 ## 🙏 Credits
 
-- Base model and derivatives are provided by their respective authors on Hugging Face.
-- Inference backend: llama.cpp
+- Base model: GLM-4.7-Flash (zai-org)
+- Fine-tunes: Unsloth, TeichAI
+- Quantization: TeichAI
+- Inference: llama.cpp
 - UI: Gradio
+- Development assistance: Claude Opus 4.6 (Anthropic)
 
 ---
 
 ## 📄 License
 
-MIT License – applies only to the notebook and code in this repository.
+MIT License (applies only to notebook and code)
